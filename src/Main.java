@@ -31,23 +31,27 @@ public class Main {
         System.out.println("Вторая очередь: " + queue2);
 
         add("Лиса Патрикеевна", queue1, queue2);
+        System.out.println();
 
         System.out.println("Первая очередь: " + queue1);
         System.out.println("Вторая очередь: " + queue2);
 
         remove(queue1, queue2);
+        System.out.println();
 
         System.out.println("Первая очередь: " + queue1);
         System.out.println("Вторая очередь: " + queue2);
     }
 
     private static void add(String name, Queue<String> queue1, Queue<String> queue2) {
+
+        if (queue1.size() == MAX_SIZE && queue2.size() == MAX_SIZE) {
+            System.out.println("нужно позвать Галю");
+        }
         if (queue1.size() < queue2.size() && queue1.size() != MAX_SIZE) {
             queue1.offer(name);
-        } else if (queue2.size() < queue1.size() && queue2.size() != MAX_SIZE) {
-            queue2.offer(name);
         } else {
-            System.out.println("нужно позвать Галю");
+            queue2.offer(name);
         }
     }
 
